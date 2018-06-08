@@ -474,7 +474,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Request 
     }
    
    $('form').submit(function() {
-   alert('I do something before the actual submission');
+   console.log( $( this ).serializeArray() );
    return true;
 });
 </script>
