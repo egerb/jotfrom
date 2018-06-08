@@ -470,14 +470,14 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Request 
        return decodeURI(results[1]) || 0;
     }
 }
-   
+
    var webhookUrl = $.urlParam('webhookUrl');
     if (webhookUrl == null) {
 	alert("webhookUrl GET parameter expected!");
     }
 
    $('form').submit(function() {
-   console.log( JSON.stringify($( this ).serialize()) );
+   console.log( JSON.stringify($( this ).serializeArray()) );
    return false;
 
 
