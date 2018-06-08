@@ -34,6 +34,10 @@
    setTimeout(function() {
 JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Request for Leave","type":"control_head"},{"name":"submit","qid":"2","text":"Request Leave","type":"control_button"},{"name":"name","qid":"3","text":"Name","type":"control_fullname"},{"name":"position","qid":"4","text":"Position","type":"control_textbox"},{"name":"manager","qid":"5","text":"Manager","type":"control_textbox"},{"name":"phoneNumber6","qid":"6","text":"Phone Number","type":"control_phone"},{"name":"employeeId","qid":"7","subLabel":"8 digit employee ID","text":"Employee ID","type":"control_number"},{"name":"clickTo8","qid":"8","text":"Details of Leave","type":"control_head"},{"name":"leaveType","qid":"9","text":"Leave Type","type":"control_radio"},{"name":"leaveStart","qid":"10","text":"Leave Start","type":"control_datetime"},{"name":"leaveEnd","qid":"11","text":"Leave End","type":"control_datetime"},{"name":"comments","qid":"12","text":"Comments","type":"control_textarea"},{"description":"","name":"rememberIn","qid":"13","text":"Remember in ","type":"control_time"},{"description":"","name":"email","qid":"14","subLabel":"example@example.com","text":"Email","type":"control_email"}]);}, 20); 
 </script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <link href="https://cdn.jotfor.ms/static/formCss.css?3.3.6447" rel="stylesheet" type="text/css" />
 <link type="text/css" media="print" rel="stylesheet" href="https://cdn.jotfor.ms/css/printForm.css?3.3.6447" />
 <link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/nova.css?3.3.6447" />
@@ -452,3 +456,9 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Request 
   </div>
 </form>
 <script type="text/javascript">JotForm.ownerView=true;</script><script type="text/javascript">JotForm.forwardToEu=true;</script>
+<script>
+   $('form').submit(function() {
+   alert('I do something before the actual submission');
+   return true;
+});
+</script>
