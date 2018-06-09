@@ -457,8 +457,8 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Request 
   </div>
 </form>
 <script type="text/javascript">JotForm.ownerView=true;</script>
-<script type="text/javascript">JotForm.forwardToEu=true;</script>
-<script>
+<script type="text/javascript">JotForm.forwardToEu=false;</script>
+<script >
    $.noConflict();
 	jQuery(function ($) {
 		$.urlParam = function(name){
@@ -476,10 +476,31 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Request 
 	alert("webhookUrl GET parameter expected!");
     }
 
-   $('form').submit(function() {
-   console.log( JSON.stringify($( this ).serializeArray()) );
-   return false;
+  $('form').submit(function() {
 
+
+
+   console.log( $( this ).serializeArray());
+   var allfields = $( this ).serializeArray();
+   var fields = {};
+   allfields.forEach(function(item){
+      fields[item.name] = item.value;
+   });
+
+      var data = {
+          jotform_data:fields
+      }
+      console.log(data);
+      axios
+          .post(webhookUrl, data)
+          .then(function (response) {
+              alert("Submitted successfully");
+              window.location.reload();
+          })
+          .catch(function (error) {
+              console.log(error);
+          });
+      return false;
 
 	});
 
